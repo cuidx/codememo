@@ -26,11 +26,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    capwnd.cpp
+    capwnd.cpp \
+    drawwnd.cpp \
+    drawobject.cpp
 
 HEADERS += \
         mainwindow.h \
-    capwnd.h
+    capwnd.h \
+    drawwnd.h \
+    drawobject.h
 
 FORMS += \
         mainwindow.ui
