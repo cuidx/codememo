@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/res">
-        <file>Hello.bmp</file>
-        <file>sample.wav</file>
-    </qresource>
-</RCC>
