@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ObjectView *view = new ObjectView(this);
     view->setGeometry(rect());
-    view->SetResource(QString(":/res/Hello.bmp"),QString("C:/cuidx/SDL2-2.0.8/SDL2-2.0.8/test/sample.wav"));
+    view->SetResource(QString(":/res/Hello.bmp"),QString("/home/cuidx/talkWithMe/sample.wav"));
 }
 
 MainWindow::~MainWindow()

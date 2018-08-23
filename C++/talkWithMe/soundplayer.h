@@ -3,11 +3,13 @@
 
 #include <QString>
 #include <QMediaPlayer>
+#include "inc/soundplayerlib.h"
 
 class SoundPlayer
 {
 public:
     SoundPlayer();
+    ~SoundPlayer();
 
     static SoundPlayer* Instance();
 
@@ -15,7 +17,11 @@ public:
 
 protected:
     QString m_file;
+#ifdef USE_QMEDIA
     QMediaPlayer* m_player;
+#else
+    SoundPlayerLib* m_player;
+#endif
 
     static SoundPlayer* m_instance;
 };

@@ -25,3 +25,10 @@ FORMS    += mainwindow.ui
 
 RESOURCES += \
     talkview.qrc
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/lib/release/ -lSoundPlayerLib
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/lib/debug/ -lSoundPlayerLib
+else:unix: LIBS += -L$$PWD/lib/ -lSoundPlayerLib -Wl,-rpath=.
+
+INCLUDEPATH += $$PWD/lib
+DEPENDPATH += $$PWD/lib
