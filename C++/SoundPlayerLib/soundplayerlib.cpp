@@ -118,6 +118,7 @@ void SoundPlayerLib::PlayFunc(SoundPlayerLib* player)
 
         SDL_strlcpy(filename, player->m_playFile.c_str(), sizeof(filename));
         /* Load the wave file into memory */
+        wave.soundpos = 0;
         if (SDL_LoadWAV(filename, &wave.spec, &wave.sound, &wave.soundlen) == NULL) {
             SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't load %s: %s\n", filename, SDL_GetError());
             quit(1);
@@ -175,6 +176,8 @@ bool SoundPlayerLib::PlaySoundFile(const char* filename)
     {
         return false;
     }
+
+    done = true;
 
     {
         std::unique_lock<std::mutex> lk(m_playerMutex);
