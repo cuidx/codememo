@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <playlist.h>
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    PlayList* m_playList;
 };
 
 #endif // MAINWINDOW_H

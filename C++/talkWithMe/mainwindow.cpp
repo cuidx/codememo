@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "objectview.h"
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -11,6 +12,33 @@ MainWindow::MainWindow(QWidget *parent) :
     ObjectView *view = new ObjectView(this);
     view->setGeometry(rect());
     view->SetResource(QString(":/res/Hello.bmp"),QString("/home/cuidx/talkWithMe/sample.wav"));
+
+    m_playList = new PlayList();
+    m_playList->LoadPlayList(std::string("./playList.xml"));
+    if (m_playList->GetCount() == 0)
+    {
+        for (int iPos = 0; iPos < 10; iPos++)
+        {
+            ObjectInfo obj;
+            obj.m_title = "TestObject";
+            obj.m_title.push_back('0' + iPos);
+            obj.m_picPath = ":/res/Hello.bmp";
+            obj.m_soundPath = "/home/cuidx/talkWithMe/sample.wav";
+            m_playList->AddObject(obj);
+        }
+        m_playList->SavePlayList();
+    }
+    else
+    {
+        qDebug() << "playlist count : " <<m_playList->GetCount();
+        PlayList::PlayListIterator iter = m_playList->begin();
+        for (; iter != m_playList->end(); iter++)
+        {
+            qDebug()<<QString::fromStdString(iter->m_title)<< " \t"
+                   <<QString::fromStdString(iter->m_picPath)<<" \t"
+                  <<QString::fromStdString(iter->m_soundPath);
+        }
+    }
 }
 
 MainWindow::~MainWindow()

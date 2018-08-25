@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     objectview.cpp \
-    soundplayer.cpp
+    soundplayer.cpp \
+    playlist.cpp
 
 HEADERS  += mainwindow.h \
     objectview.h \
-    soundplayer.h
+    soundplayer.h \
+    playlist.h
 
 FORMS    += mainwindow.ui
 
