@@ -12,10 +12,11 @@ ObjectView::ObjectView(QWidget *parent) : QWidget(parent)
     connect(m_playBtn,SIGNAL(clicked(bool)),this,SLOT(onPlay()));
 }
 
-bool ObjectView::SetResource(const QString &picPath,const QString &soundPath)
+bool ObjectView::SetResource(const QString &picPath,const QString &soundPath,const QString &text)
 {
     m_picPath = picPath;
     m_soundPath = soundPath;
+    m_text = text;
     if (m_bgPic)
     {
        QPixmap pic(picPath);
@@ -34,5 +35,9 @@ void ObjectView::onPlay()
     if (!m_soundPath.isEmpty())
     {
         SoundPlayer::Instance()->PlayFile(m_soundPath);
+    }
+    else if(!m_text.isEmpty())
+    {
+        SoundPlayer::Instance()->PlayText(m_text.toStdString().c_str());
     }
 }

@@ -11,7 +11,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ObjectView *view = new ObjectView(this);
     view->setGeometry(rect());
-    view->SetResource(QString(":/res/Hello.bmp"),QString("/home/cuidx/talkWithMe/sample.wav"));
+    view->SetResource(QString(":/res/Hello.bmp"),
+                      QString(""),//QString("/home/cuidx/talkWithMe/sample.wav"),
+                     // QString::fromUtf8("<emphasis level=\'strong\'>爸</emphasis><emphasis level=\'reduce\'>爸</emphasis>"));
+                      //QString::fromUtf8("爸<break time=\'300ms\'/>爸"));
+                      QString::fromUtf8("<phoneme>ba4</phoneme><phoneme>ba</phoneme>"));
 
     m_playList = new PlayList();
     m_playList->LoadPlayList(std::string("./playList.xml"));

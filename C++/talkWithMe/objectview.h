@@ -12,7 +12,7 @@ class ObjectView : public QWidget
 public:
     explicit ObjectView(QWidget *parent = 0);
 
-    bool SetResource(const QString &picPath,const QString &soundPath);
+    bool SetResource(const QString &picPath,const QString &soundPath,const QString &text);
 
 signals:
 
@@ -24,6 +24,7 @@ private:
     QLabel*     m_bgPic;
     QString     m_picPath;
     QString     m_soundPath;
+    QString     m_text;
 };
 
 #endif // OBJECTVIEW_H
