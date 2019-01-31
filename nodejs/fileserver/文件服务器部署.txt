@@ -1,0 +1,9 @@
+
+
+修改config.json
+
+{
+	"serverPort" : 3000,								----->    这个3000是监听的端口号（本机监听的端口号，可能跟外网上传的端口号不一样）
+	"downServer" : "http://localhost:3000/",            ----->    替换成  外网下载的ip:监听端口号
+	"fileSavePath" : "public/uploads"					----->    /public/uploads 是上传图像存储的路径需要手动创建
+}

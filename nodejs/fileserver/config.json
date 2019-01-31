@@ -1,0 +1,5 @@
+{
+	"serverPort" : 3000,
+	"downServer" : "http://10.160.71.111:3000/",
+	"fileSavePath" : "public/uploads"
+}
